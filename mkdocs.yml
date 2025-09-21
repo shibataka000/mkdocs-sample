@@ -15,4 +15,7 @@ validation:
   anchors: warn
 theme:
   name: material
+  features:
+    - navigation.tabs
+    - navigation.path
 strict: true

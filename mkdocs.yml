@@ -1,0 +1,18 @@
+site_name: mkdocs sample
+site_url: https://www.google.com/
+repo_url: https://github.com/shibataka000/mkdocs-sample
+repo_name: mkdocs-sample
+site_description: site description
+copyright: copyright
+site_author: shibataka000
+nav:
+  - Home: index.md
+  - About: about.md
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+theme:
+  name: material
+strict: true

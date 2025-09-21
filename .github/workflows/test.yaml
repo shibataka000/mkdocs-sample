@@ -3,7 +3,7 @@ on:
   push:
 jobs:
   mkdocs-build:
-    name: mkdocs build
+    name: mkdocs-build
     runs-on: ubuntu-latest
     permissions:
       contents: read

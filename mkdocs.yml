@@ -7,7 +7,14 @@ copyright: copyright
 site_author: shibataka000
 nav:
   - Home: index.md
-  - About: about.md
+  - Policies:
+      - "1": policies/1.md
+      - "2": policies/2.md
+      - "3": policies/3.md
+  - Guideline:
+      - phase-1:
+          - task-1:
+              - item-1: guidelines/phase-1/task-1/アイテム1.md
 validation:
   omitted_files: warn
   absolute_links: warn
@@ -15,4 +22,7 @@ validation:
   anchors: warn
 theme:
   name: material
-strict: true
+  features:
+    - navigation.tabs
+    - navigation.path
+# strict: true

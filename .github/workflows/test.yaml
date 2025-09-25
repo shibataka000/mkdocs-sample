@@ -2,8 +2,8 @@ name: Test
 on:
   push:
 jobs:
-  build:
-    name: build
+  mkdocs-build:
+    name: mkdocs-build
     runs-on: ubuntu-latest
     permissions:
       contents: read

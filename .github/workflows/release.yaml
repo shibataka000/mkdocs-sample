@@ -1,8 +1,6 @@
 name: Release
 on:
   push:
-    branches:
-      - main
     tags:
       - "*"
 jobs:
@@ -19,14 +17,11 @@ jobs:
         with:
           python-version-file: pyproject.toml
       - uses: astral-sh/setup-uv@b75a909f75acd358c2196fb9a5f1299a9a8868a4 # v6.7.0
-      - run: sudo apt install fonts-ipafont
+      - name: Install Japanese fonts
+        run: sudo apt -y install fonts-ipafont
       - run: uv run mkdocs build
-      - uses: actions/upload-artifact@v4
-        with:
-          name: document.pdf
-          path: ./site/pdf/document.pdf
-      # - name: Create release
-      #   run: gh release create "${TAG}" ./site/pdf/document.pdf --generate-notes
-      #   env:
-      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     TAG: ${{ github.ref_name }}
+      - name: Create release
+        run: gh release create "${TAG}" ./site/pdf/document.pdf --generate-notes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.ref_name }}

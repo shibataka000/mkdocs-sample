@@ -1,9 +1,9 @@
-name: Test
+name: Build
 on:
   push:
 jobs:
-  mkdocs-build:
-    name: mkdocs-build
+  mkdocs:
+    name: mkdocs
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -13,4 +13,11 @@ jobs:
         with:
           python-version-file: pyproject.toml
       - uses: astral-sh/setup-uv@b75a909f75acd358c2196fb9a5f1299a9a8868a4 # v6.7.0
+      - name: Install Japanese fonts
+        run: sudo apt -y install fonts-ipafont
       - run: uv run mkdocs build
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: site
+          path: ./site/
+          if-no-files-found: error
